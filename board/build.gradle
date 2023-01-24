@@ -28,6 +28,8 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation  'org.mariadb.jdbc:mariadb-java-client'
+	implementation  'org.thymeleaf.extras:thymeleaf-extras-java8time'
 }
 
 tasks.named('test') {
