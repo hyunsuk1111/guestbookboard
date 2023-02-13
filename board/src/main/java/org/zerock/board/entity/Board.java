@@ -1,6 +1,7 @@
 package org.zerock.board.entity;
 
 import lombok.*;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 
@@ -20,6 +21,6 @@ public class Board extends BaseEntity{
 
     private String content;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Member writer;
 }
