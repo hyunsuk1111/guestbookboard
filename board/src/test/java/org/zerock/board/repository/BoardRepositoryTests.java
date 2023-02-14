@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.zerock.board.entity.Board;
 import org.zerock.board.entity.Member;
 
+import java.util.Arrays;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
@@ -44,6 +45,14 @@ public class BoardRepositoryTests {
 
         System.out.println(board);
         System.out.println(board.getWriter());
+    }
+
+    @Test
+    @DisplayName("테스트_작성자가져오기")
+    public void testReadWithWriter(){
+        Object result = boardRepository.getBoardWithWriter(100L);
+
+        System.out.println(Arrays.toString((Object[]) result));
     }
 
 }
