@@ -3,6 +3,7 @@ package org.zerock.board.service;
 import org.zerock.board.dto.BoardDTO;
 import org.zerock.board.entity.Board;
 import org.zerock.board.entity.Member;
+import org.zerock.board.entity.Reply;
 
 public interface BoardService {
     Long register(BoardDTO dto);
@@ -20,5 +21,20 @@ public interface BoardService {
                 .build();
 
         return board;
+    }
+
+    default BoardDTO entityToDto(Board board, Member member, Long replyCount){
+        BoardDTO boardDTO = BoardDTO.builder()
+                .bno(board.getBno())
+                .title(board.getTitle())
+                .content(board.getContent())
+                .regDate(board.getRegDate())
+                .modDate(board.getModDate())
+                .writerEmail(member.getEmail())
+                .writerName(member.getName())
+                .replyCount(replyCount.intValue())
+                .build();
+
+        return boardDTO;
     }
 }
